@@ -1,0 +1,22 @@
+# Takunology Environment
+# 各自の環境に合わせて forge バージョンを変更し、再度ビルドしてください。
+# https://blog.takunology.jp/entry/2019/08/23/072535 参考までにどうぞ
+version: '2'
+services:
+    minecraft-server:
+        container_name: Takunology_Industrial
+        image: itzg/minecraft-server
+        ports:
+            - "25565:25565"
+        tty: true
+        stdin_open: true
+        restart: always
+        volumes:
+            - ./Version1.7.10/mods:/data/mods
+            - ./Version1.7.10/data:/data/
+        environment:
+            EULA: "TRUE"
+            VERSION: "1.7.10"
+            TYPE: "FORGE"
+            FORGEVERSION: "10.13.4.1614"
+    
